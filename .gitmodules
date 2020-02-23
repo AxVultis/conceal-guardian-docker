@@ -1,0 +1,6 @@
+[submodule "conceal-core"]
+	path = conceal-core
+	url = https://github.com/ConcealNetwork/conceal-core
+[submodule "conceal-guardian"]
+	path = conceal-guardian
+	url = https://github.com/ConcealNetwork/conceal-guardian
