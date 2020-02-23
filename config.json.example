@@ -1,0 +1,26 @@
+{
+  "node": {
+    "args": [],
+    "port": 16000,
+    "bindAddr": "0.0.0.0",
+    "name": "NODE_NAME",
+    "path": "/opt/conceal-core/conceald",
+    "feeAddr": "CCX_ADDRESS"
+  },
+  "restart": {
+    "terminateTimeout": 5,
+    "errorForgetTime": 600,
+    "maxCloseErrors": 3,
+    "maxBlockTime": 1800,
+    "maxInitTime": 600
+  },
+  "api": {
+    "port": 8080
+  },
+  "pool": {
+    "notify": {
+      "url": "https://explorer.conceal.network/pool/update",
+      "interval": 30
+    }
+  }
+}
