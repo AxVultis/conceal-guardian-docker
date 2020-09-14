@@ -1,4 +1,4 @@
-# Conceal-core build
+# conceal-core build
 
 FROM ubuntu:bionic AS build
 
@@ -10,13 +10,9 @@ WORKDIR /conceal-core
 
 COPY ./conceal-core .
 
-WORKDIR /conceal-core/build
+RUN make build-release
 
-RUN cmake ..
-
-RUN make
-
-# Conceal-node installation
+# conceal-node installation
 
 FROM ubuntu:bionic
 
@@ -26,7 +22,7 @@ RUN apt-get install -y python-dev libboost-all-dev
 
 WORKDIR /opt/conceal-core
 
-COPY --from=build /conceal-core/build/src ./
+COPY --from=build /conceal-core/build/release/src ./
 
 WORKDIR /opt/conceal-guardian
 
@@ -39,6 +35,8 @@ RUN npm install
 RUN npm install pm2 -g
 
 COPY ./conceal-guardian/ .
+
+COPY ./config.json ./
 
 EXPOSE 16000
 
